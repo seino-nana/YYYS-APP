@@ -21,9 +21,8 @@ const loginSuccess = (profile) => {
 	const memberStore = useMemberStore()
 	memberStore.setProfile(profile)
 	const token = memberStore.profile?.token
+	const userId = memberStore.profile?.userId
 	if(token) {
-		getUserInfo().then((res) => {
-		})		
 		// 成功提示
 		uni.showToast({ icon: 'success', title: '登录成功' })
 		setTimeout(() => {
@@ -118,7 +117,7 @@ page {
 		}
 
 		.phone {
-			background-color: #3498db;
+			background-color: #0F2E58;
 		}
 
 		.wechat {

@@ -3,7 +3,8 @@
 		safeAreaInsets
 	} = uni.getSystemInfoSync()
 	import {
-		ref,watch
+		ref,
+		watch
 	} from 'vue'
 	import {
 		onLoad
@@ -65,12 +66,11 @@
 	const isTriggered = ref(false)
 	// 自定义下拉刷新被触发
 	const onRefresherrefresh = async () => {
-	 	// 开启动画
+		// 开启动画
 		isTriggered.value = true
-		await console.log(tabs[tabsCurrent.value].name); 
+		await console.log(tabs[tabsCurrent.value].name);
 		isTriggered.value = false
 	}
-	
 </script>
 <template>
 	<view class="navbar" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
@@ -80,21 +80,21 @@
 			</view>
 			<view class="center" @tap="goSearch">
 				<view class="search">
-					<uni-icons type="search" size="22" color="#34495e"></uni-icons>
+					<uni-icons type="search" size="22" color="#0F2E58"></uni-icons>
 					<text class="icon-search">搜片名</text>
 				</view>
 			</view>
 			<view class="right">
 				<view class="history" @tap="goHistory">
 					<image src="/static/common/clock.png" style="width: 88rpx;height: 88rpx;">
-					</image>		
+					</image>
 				</view>
 			</view>
 		</view>
 		<view class="content">
-			<u-tabs :list="tabs" lineColor="#34495e" lineWidth="30" @change="changeTabs" :current="tabsCurrent"
+			<u-tabs :list="tabs" lineColor="#0F2E58" lineWidth="30" @change="changeTabs" :current="tabsCurrent"
 				:activeStyle="{
-				   color: '#34495e',
+				   color: '#0F2E58',
 				   fontWeight: 'bold',
 				   transform: 'scale(1.05)'}" :inactiveStyle="{
 				   color: '#000',
@@ -102,8 +102,8 @@
 			</u-tabs>
 		</view>
 	</view>
-	<scroll-view scroll-y class="scroll-view" >
-		<tabs-item :list="recommends.list" :banners="recommends.banners" :tabsCurrent="tabsCurrent"/>
+	<scroll-view scroll-y class="scroll-view">
+		<tabs-item :list="recommends.list" :banners="recommends.banners" :tabsCurrent="tabsCurrent" />
 	</scroll-view>
 	<!-- <swiper class="swiper-box" :current="tabsCurrent" @change="changeTabsContent"
 			@animationfinish="animationfinish">
@@ -128,6 +128,12 @@
 		flex: 1;
 		padding: 268rpx 20rpx 0;
 	}
+
+	/* #ifdef H5 */
+	.scroll-view {
+		padding: 188rpx 20rpx 0;
+	}
+	/* #endif */
 
 	/* 自定义导航条 */
 	.navbar {

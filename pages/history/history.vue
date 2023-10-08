@@ -130,7 +130,7 @@
 					<view class="delete" @tap="deleteHistoryClick">删除</view>
 				</view>
 			</template>
-			<view v-else>去登陆</view>
+			<view v-else>尚未登录</view>
 		</scroll-view>
 	</view>
 </template>

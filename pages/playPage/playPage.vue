@@ -2,6 +2,7 @@
 	const {
 		safeAreaInsets
 	} = uni.getSystemInfoSync()
+	import controlSSDPEvent from '@/uni_modules/w-dlna/index.js'
 	import {
 		useMemberStore
 	} from '@/store/module/member.js'
@@ -32,7 +33,6 @@
 		await addPlayCount(query.id)
 		await getRecommend()
 		isShow.value = true
-		console.log(numberIndex.value);
 	})
 	// 页面是否渲染
 	const isShow = ref(false)
@@ -58,19 +58,19 @@
 	const parserIndex = ref(0)
 	const parserUrl = ref([{
 			name: '1号线',
-			url: 'https://vip.zykbf.com/?url='
-		},
-		{
-			name: '2号线',
 			url: 'https://sljxsl.com/?url='
 		},
 		{
-			name: '3号线',
+			name: '2号线',
 			url: 'https://www.xinlangjiexi.com/m3u8/?url='
 		},
 		{
-			name: '4号线',
+			name: '3号线',
 			url: 'https://jiexi.ttbfp1.com/m3u8/?url='
+		},
+		{
+			name: '4号线',
+			url: 'https://vip.zykbf.com/?url='
 		},
 		{
 			name: '5号线',
@@ -78,7 +78,7 @@
 		}
 	])
 	// 解析接口
-	const vipUrl = ref('https://vip.zykbf.com/?url=')
+	const vipUrl = ref('https://sljxsl.com/?url=')
 	// 获取接口数据
 	const _getDetail = async () => {
 		const res = await getDetail(query.id)
@@ -101,7 +101,6 @@
 		if (!movie.value.url) {
 			showNumber.value = false
 		}
-		console.log(movieUrl.value);
 	}
 	// 收藏夹中查找
 	const _getCollect = async () => {
@@ -123,8 +122,7 @@
 							showUrl.value = movieUrl.value[item
 								.oldnumber].url
 							numberIndex.value = item.oldnumber
-							warning.value = '当前正在播放: ' + movie.value.nm + movieUrl.value[numberIndex
-								.value].number
+							
 							// 没有历史集数
 						} else {
 							showUrl.value = movieUrl.value[0].url
@@ -133,7 +131,9 @@
 					} else {
 						showUrl.value = movieUrl.value[0].url
 					}
+					warning.value = '当前正在播放: ' + movie.value.nm + movieUrl.value[numberIndex.value].number
 				})
+				
 				const data = {
 					movieId: query.id,
 					oldnumber: numberIndex.value
@@ -155,8 +155,9 @@
 	}
 	// 点击集数
 	const numberClick = (url, index) => {
-		showUrl.value = vipUrl.value + url
+		showUrl.value = url
 		numberIndex.value = index
+		warning.value = '当前正在播放: ' + movie.value.nm + movieUrl.value[numberIndex.value].number
 		// 添加历史记录
 		if (memberStore.profile) {
 			const data = {
@@ -165,7 +166,6 @@
 			}
 			addHistory(data)
 		}
-		console.log(numberIndex.value);
 	}
 	// 点击线路
 	const parserClick = (url, index) => {
@@ -204,24 +204,23 @@
 		})
 		recommend.value = res.movieList
 	}
-	const back = () => {
-		uni.navigateBack({
-			delta: 1
-		})
+	const toupin = () => {
+		console.log(123);
+		controlSSDPEvent.ssdp()
+		controlSSDPEvent.event()
+		controlSSDPEvent.control()
 	}
 </script>
 <template>
 	<view class="playPage" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
 		<view class="player">
-			<!-- <view class="return" @tap="back">
-				<uni-icons type="back" size="28" color="#fff"></uni-icons>
-			</view> -->
 			<iframe :src="vipUrl + showUrl" marginwidth="0" marginheight="0" border="0" scrolling="no" frameborder="0"
 				topmargin="0" width="100%" height="100%" allowfullscreen="allowfullscreen"
 				mozallowfullscreen="mozallowfullscreen" msallowfullscreen=" msallowfullscreen"
 				oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen">
 			</iframe>
 		</view>
+		<u-button @tap="toupin">投屏</u-button>
 		<view class="wrap" v-if="isShow">
 			<view class="detail">
 				<u-notice-bar :text="warning"></u-notice-bar>
@@ -299,7 +298,10 @@
 <style lang="scss">
 	.playPage {
 		.player {
-			height: 400rpx;
+			// height: 400rpx;
+			position: sticky;
+			top: 0;
+			z-index: 99;
 
 			.return {
 				position: absolute;

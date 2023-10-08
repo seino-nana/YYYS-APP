@@ -1,0 +1,83 @@
+{
+    "id": "w-dlna",
+    "name": "w-dlna",
+    "displayName": "纯JS的android DLNA SSDP",
+    "version": "1.0.5",
+    "description": "纯JS的android DLNA SSDP ,实现简单的投屏控制功能，安卓可用",
+    "keywords": [
+        "DLNA",
+        "SSDP"
+    ],
+    "engines": {
+        "HBuilderX": "^3.1.9"
+    },
+    "dcloudext": {
+        "category": [
+            "JS SDK",
+            "通用 SDK"
+        ],
+        "declaration": {
+            "ads": "无",
+            "data": "无",
+            "permissions": "无"
+        },
+        "sale": {
+            "regular": {
+                "price": "0.00"
+            },
+            "sourcecode": {
+                "price": "0.00"
+            }
+        },
+        "contact": {
+            "qq": ""
+        },
+        "npmurl": ""
+    },
+    "repository": "",
+    "uni_modules": {
+        "platforms": {
+            "cloud": {
+                "tcb": "y",
+                "aliyun": "y"
+            },
+            "client": {
+                "Vue": {
+                    "vue2": "y",
+                    "vue3": "y"
+                },
+                "App": {
+                    "app-vue": "y",
+                    "app-nvue": "y"
+                },
+                "H5-mobile": {
+                    "Safari": "u",
+                    "Android Browser": "u",
+                    "微信浏览器(Android)": "u",
+                    "QQ浏览器(Android)": "u"
+                },
+                "H5-pc": {
+                    "Chrome": "u",
+                    "IE": "u",
+                    "Edge": "u",
+                    "Firefox": "u",
+                    "Safari": "u"
+                },
+                "小程序": {
+                    "微信": "u",
+                    "阿里": "u",
+                    "百度": "u",
+                    "字节跳动": "u",
+                    "QQ": "u"
+                },
+                "快应用": {
+                    "华为": "u",
+                    "联盟": "u"
+                }
+            }
+        }
+    },
+    "dependencies": {
+        "fast-xml-parser": "^4.0.7"
+    }
+}

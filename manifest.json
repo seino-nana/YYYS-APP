@@ -2,8 +2,8 @@
     "name" : "莹赢影视",
     "appid" : "__UNI__39BDCE3",
     "description" : "莹赢影视APP",
-    "versionName" : "3.0.0",
-    "versionCode" : "100",
+    "versionName" : "3.0.3",
+    "versionCode" : 303,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -84,6 +84,22 @@
                 "iosStyle" : "common",
                 "androidStyle" : "common",
                 "useOriginalMsgbox" : true
+            }
+        },
+        "nativePlugins" : {
+            "JX-Dlna" : {
+                "__plugin_info__" : {
+                    "name" : "Dlna投屏",
+                    "description" : "安卓Dlna投屏",
+                    "platforms" : "Android",
+                    "url" : "https://ext.dcloud.net.cn/plugin?id=1269",
+                    "android_package_name" : "uni.UNI39BDCE3",
+                    "ios_bundle_id" : "",
+                    "isCloud" : true,
+                    "bought" : 1,
+                    "pid" : "1269",
+                    "parameters" : {}
+                }
             }
         }
     },

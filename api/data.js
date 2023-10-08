@@ -54,17 +54,17 @@ export const getToken = (data) => {
 	})
 }
 // 获取用户信息
-export const getUserInfo = () => {
+export const getUserInfo = (userId) => {
 	return request({
 		method: 'GET',
-		url: '/user/info'
+		url: `/user/info/${userId}`
 	})
 }
 // 编辑用户信息
 export const updateUserInfo = (data) => {
 	return request({
-		method:'POST',
-		url: '/user/info/update',
+		method:'PATCH',
+		url: `/user/info/${data.userId}`,
 		data
 	})
 }

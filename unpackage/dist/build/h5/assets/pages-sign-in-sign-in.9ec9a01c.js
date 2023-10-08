@@ -1,0 +1,1 @@
+import{o as s,c as e,w as r,l as a,b as o}from"./index-c10f9bc5.js";import{_ as t}from"./_plugin-vue_export-helper.1b428a4d.js";const n=t({},[["render",function(t,n){const i=a;return s(),e(i,{class:""},{default:r((()=>[o("积分中心")])),_:1})}]]);export{n as default};

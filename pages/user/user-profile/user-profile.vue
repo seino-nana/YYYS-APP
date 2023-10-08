@@ -9,7 +9,7 @@ const memberStore = useMemberStore()
 const { safeAreaInsets } = uni.getSystemInfoSync()
 const profile = ref()
 onLoad( async () => {
-	const res = await getUserInfo()
+	const res = await getUserInfo(memberStore.profile.userId)
 	profile.value = res
 })
 const uploadImage = (event) => {
@@ -20,7 +20,7 @@ const uploadImage = (event) => {
 	      uni.uploadFile({
 	        url: 'https://www.3154movie.cn/upload/avatar', // 替换为你的后端接口地址
 	        filePath: tempFilePaths, // 选择的图片临时路径
-	        name: 'avatar', // 后端接口上传时需要的字段名，保持与后端一致
+	        name: 'file', // 后端接口上传时需要的字段名，保持与后端一致
 	        success: (uploadResult) => {
 	          const imageUrl = uploadResult.data // 上传成功后返回的图片地址
 	          // 更新头像地址到profile对象
@@ -41,7 +41,7 @@ const uploadImage = (event) => {
 }
 const onSubmit = async () => {
 	if(memberStore.profile) {
-		await updateUserInfo(profile.value)
+		await updateUserInfo({...profile.value})
 		uni.navigateBack({
 			delta: 1
 		})

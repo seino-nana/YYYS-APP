@@ -7,8 +7,8 @@
   "id": "__UNI__39BDCE3",
   "name": "莹赢影视",
   "version": {
-    "name": "3.0.0",
-    "code": "100"
+    "name": "3.0.3",
+    "code": 303
   },
   "description": "莹赢影视APP",
   "developer": {
@@ -109,10 +109,26 @@
         }
       }
     },
+    "nativePlugins": {
+      "JX-Dlna": {
+        "__plugin_info__": {
+          "name": "Dlna投屏",
+          "description": "安卓Dlna投屏",
+          "platforms": "Android",
+          "url": "https://ext.dcloud.net.cn/plugin?id=1269",
+          "android_package_name": "uni.UNI39BDCE3",
+          "ios_bundle_id": "",
+          "isCloud": true,
+          "bought": 1,
+          "pid": "1269",
+          "parameters": {}
+        }
+      }
+    },
     "statusbar": {
       "immersed": "supportedDevice",
       "style": "light",
-      "background": "#010101"
+      "background": "#0F2E58"
     },
     "uniStatistics": {
       "enable": false
@@ -182,5 +198,11 @@
       "selected": 0
     }
   },
+  "screenOrientation": [
+    "portrait-primary",
+    "portrait-secondary",
+    "landscape-primary",
+    "landscape-secondary"
+  ],
   "launch_path": "__uniappview.html"
 }

@@ -132,6 +132,7 @@
 	  overflow: hidden;
   }
   .navbar {
+
 	.title {
 		text-align: center;
 		font-size: 36rpx;
