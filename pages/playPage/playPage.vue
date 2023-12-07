@@ -206,9 +206,9 @@
 	}
 	const toupin = () => {
 		console.log(123);
-		controlSSDPEvent.ssdp()
-		controlSSDPEvent.event()
-		controlSSDPEvent.control()
+		controlSSDPEvent.ssdp().search()
+		// controlSSDPEvent.event()
+		// controlSSDPEvent.control()
 	}
 </script>
 <template>
